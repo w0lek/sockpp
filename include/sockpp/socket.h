@@ -517,7 +517,7 @@ public:
      */
 	template <typename T>
     bool set_option(int level, int optname, const T& val) {
-		return set_option(level, optname, (void*) &val, sizeof(T));
+        return set_option(level, optname, static_cast<const void*>(&val), sizeof(T));
 	}
 	/**
 	 * Places the socket into or out of non-blocking mode.
