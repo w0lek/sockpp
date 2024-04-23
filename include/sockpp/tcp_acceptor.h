@@ -63,7 +63,7 @@ using tcp_acceptor = acceptor_tmpl<tcp_socket>;
 
 /////////////////////////////////////////////////////////////////////////////
 // end namespace sockpp
-};
+}
 
 #endif		// __sockpp_tcp_acceptor_h
 
