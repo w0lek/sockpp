@@ -52,7 +52,8 @@ constexpr size_t unix_address::MAX_PATH_NAME;
 unix_address::unix_address(const string& path)
 {
 	addr_.sun_family = ADDRESS_FAMILY;
-	::strncpy(addr_.sun_path, path.c_str(), MAX_PATH_NAME);
+	::strncpy(addr_.sun_path, path.c_str(), MAX_PATH_NAME - 1);
+	addr_.sun_path[MAX_PATH_NAME - 1] = '\0'; // Always ensure null-termination
 }
 
 unix_address::unix_address(const sockaddr& addr) : addr_{}

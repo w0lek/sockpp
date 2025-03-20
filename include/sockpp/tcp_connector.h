@@ -60,6 +60,6 @@ using tcp_connector = connector_tmpl<tcp_socket>;
 
 /////////////////////////////////////////////////////////////////////////////
 // end namespace sockpp
-};
+}
 
 #endif		// __sockpp_tcp_connector_h

@@ -124,9 +124,9 @@ TEST_CASE("tcp_socket read/write", "[stream_socket]") {
 					 N_TOT = N_HEADER + N + N_FOOTER;
 
 		std::vector<iovec> outv {
-			iovec { (void*) HEADER.data(), N_HEADER },
-			iovec { (void*) STR.data(), N },
-			iovec { (void*) FOOTER.data(), N_FOOTER }
+            iovec { const_cast<void*>(static_cast<const void*>(HEADER.data())), N_HEADER },
+            iovec { const_cast<void*>(static_cast<const void*>(STR.data())), N },
+            iovec { const_cast<void*>(static_cast<const void*>(FOOTER.data())), N_FOOTER }
 		};
 
 		char hbuf[512], 	// N_HEADER
